@@ -1,0 +1,12 @@
+{
+  "contract_id": "simple_suicide",
+  "difficulty": "easy",
+  "vulnerabilities": [
+    {
+      "type": "access_control",
+      "location": "lines [12, 13]",
+      "severity": "high",
+      "explanation": "access_control vulnerability at lines [12, 13]"
+    }
+  ]
+}

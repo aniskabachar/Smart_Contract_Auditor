@@ -1,0 +1,18 @@
+{
+  "contract_id": "lotto",
+  "difficulty": "medium",
+  "vulnerabilities": [
+    {
+      "type": "access_control",
+      "location": "lines [20]",
+      "severity": "medium",
+      "explanation": "unchecked_low_level_calls vulnerability at lines [20]"
+    },
+    {
+      "type": "access_control",
+      "location": "lines [27]",
+      "severity": "medium",
+      "explanation": "unchecked_low_level_calls vulnerability at lines [27]"
+    }
+  ]
+}

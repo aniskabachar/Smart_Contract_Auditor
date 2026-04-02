@@ -1,0 +1,12 @@
+{
+  "contract_id": "dos_address",
+  "difficulty": "easy",
+  "vulnerabilities": [
+    {
+      "type": "access_control",
+      "location": "lines [16, 17, 18]",
+      "severity": "medium",
+      "explanation": "denial_of_service vulnerability at lines [16, 17, 18]"
+    }
+  ]
+}

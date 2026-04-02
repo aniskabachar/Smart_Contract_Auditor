@@ -1,0 +1,18 @@
+{
+  "contract_id": "eth_tx_order_dependence_minimal",
+  "difficulty": "medium",
+  "vulnerabilities": [
+    {
+      "type": "access_control",
+      "location": "lines [23]",
+      "severity": "medium",
+      "explanation": "front_running vulnerability at lines [23]"
+    },
+    {
+      "type": "access_control",
+      "location": "lines [31]",
+      "severity": "medium",
+      "explanation": "front_running vulnerability at lines [31]"
+    }
+  ]
+}

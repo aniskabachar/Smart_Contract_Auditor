@@ -1,0 +1,12 @@
+{
+  "contract_id": "rubixi",
+  "difficulty": "easy",
+  "vulnerabilities": [
+    {
+      "type": "access_control",
+      "location": "lines [23, 24]",
+      "severity": "high",
+      "explanation": "access_control vulnerability at lines [23, 24]"
+    }
+  ]
+}

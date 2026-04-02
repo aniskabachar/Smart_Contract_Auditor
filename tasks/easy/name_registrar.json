@@ -1,0 +1,12 @@
+{
+  "contract_id": "name_registrar",
+  "difficulty": "easy",
+  "vulnerabilities": [
+    {
+      "type": "access_control",
+      "location": "lines [23]",
+      "severity": "medium",
+      "explanation": "other vulnerability at lines [23]"
+    }
+  ]
+}

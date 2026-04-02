@@ -1,0 +1,30 @@
+{
+  "contract_id": "king_of_the_ether_throne",
+  "difficulty": "hard",
+  "vulnerabilities": [
+    {
+      "type": "access_control",
+      "location": "lines [110]",
+      "severity": "medium",
+      "explanation": "unchecked_low_level_calls vulnerability at lines [110]"
+    },
+    {
+      "type": "access_control",
+      "location": "lines [118]",
+      "severity": "medium",
+      "explanation": "unchecked_low_level_calls vulnerability at lines [118]"
+    },
+    {
+      "type": "access_control",
+      "location": "lines [132]",
+      "severity": "medium",
+      "explanation": "unchecked_low_level_calls vulnerability at lines [132]"
+    },
+    {
+      "type": "access_control",
+      "location": "lines [174]",
+      "severity": "medium",
+      "explanation": "unchecked_low_level_calls vulnerability at lines [174]"
+    }
+  ]
+}

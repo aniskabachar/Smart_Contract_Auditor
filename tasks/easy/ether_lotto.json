@@ -1,0 +1,12 @@
+{
+  "contract_id": "ether_lotto",
+  "difficulty": "easy",
+  "vulnerabilities": [
+    {
+      "type": "timestamp_dependence",
+      "location": "lines [43]",
+      "severity": "medium",
+      "explanation": "time_manipulation vulnerability at lines [43]"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "contract_id": "wallet_04_confused_sign",
+  "difficulty": "easy",
+  "vulnerabilities": [
+    {
+      "type": "access_control",
+      "location": "lines [30]",
+      "severity": "high",
+      "explanation": "access_control vulnerability at lines [30]"
+    }
+  ]
+}

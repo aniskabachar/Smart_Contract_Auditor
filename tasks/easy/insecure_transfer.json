@@ -1,0 +1,12 @@
+{
+  "contract_id": "insecure_transfer",
+  "difficulty": "easy",
+  "vulnerabilities": [
+    {
+      "type": "integer_overflow",
+      "location": "lines [18]",
+      "severity": "high",
+      "explanation": "arithmetic vulnerability at lines [18]"
+    }
+  ]
+}

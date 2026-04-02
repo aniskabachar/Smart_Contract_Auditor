@@ -1,0 +1,12 @@
+{
+  "contract_id": "simple_dao",
+  "difficulty": "easy",
+  "vulnerabilities": [
+    {
+      "type": "reentrancy",
+      "location": "lines [19]",
+      "severity": "critical",
+      "explanation": "reentrancy vulnerability at lines [19]"
+    }
+  ]
+}

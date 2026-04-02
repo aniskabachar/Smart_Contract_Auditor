@@ -1,0 +1,42 @@
+{
+  "contract_id": "overflow_single_tx",
+  "difficulty": "hard",
+  "vulnerabilities": [
+    {
+      "type": "integer_overflow",
+      "location": "lines [18]",
+      "severity": "high",
+      "explanation": "arithmetic vulnerability at lines [18]"
+    },
+    {
+      "type": "integer_overflow",
+      "location": "lines [24]",
+      "severity": "high",
+      "explanation": "arithmetic vulnerability at lines [24]"
+    },
+    {
+      "type": "integer_overflow",
+      "location": "lines [30]",
+      "severity": "high",
+      "explanation": "arithmetic vulnerability at lines [30]"
+    },
+    {
+      "type": "integer_overflow",
+      "location": "lines [36]",
+      "severity": "high",
+      "explanation": "arithmetic vulnerability at lines [36]"
+    },
+    {
+      "type": "integer_overflow",
+      "location": "lines [42]",
+      "severity": "high",
+      "explanation": "arithmetic vulnerability at lines [42]"
+    },
+    {
+      "type": "integer_overflow",
+      "location": "lines [48]",
+      "severity": "high",
+      "explanation": "arithmetic vulnerability at lines [48]"
+    }
+  ]
+}

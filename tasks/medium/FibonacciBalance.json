@@ -1,0 +1,18 @@
+{
+  "contract_id": "FibonacciBalance",
+  "difficulty": "medium",
+  "vulnerabilities": [
+    {
+      "type": "access_control",
+      "location": "lines [31]",
+      "severity": "high",
+      "explanation": "access_control vulnerability at lines [31]"
+    },
+    {
+      "type": "access_control",
+      "location": "lines [38]",
+      "severity": "high",
+      "explanation": "access_control vulnerability at lines [38]"
+    }
+  ]
+}

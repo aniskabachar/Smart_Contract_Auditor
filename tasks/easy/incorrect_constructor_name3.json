@@ -1,0 +1,12 @@
+{
+  "contract_id": "incorrect_constructor_name3",
+  "difficulty": "easy",
+  "vulnerabilities": [
+    {
+      "type": "access_control",
+      "location": "lines [17]",
+      "severity": "high",
+      "explanation": "access_control vulnerability at lines [17]"
+    }
+  ]
+}

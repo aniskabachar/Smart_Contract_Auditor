@@ -1,0 +1,12 @@
+{
+  "contract_id": "integer_overflow_multitx_onefunc_feasible",
+  "difficulty": "easy",
+  "vulnerabilities": [
+    {
+      "type": "integer_overflow",
+      "location": "lines [22]",
+      "severity": "high",
+      "explanation": "arithmetic vulnerability at lines [22]"
+    }
+  ]
+}

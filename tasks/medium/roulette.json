@@ -1,0 +1,18 @@
+{
+  "contract_id": "roulette",
+  "difficulty": "medium",
+  "vulnerabilities": [
+    {
+      "type": "timestamp_dependence",
+      "location": "lines [18]",
+      "severity": "medium",
+      "explanation": "time_manipulation vulnerability at lines [18]"
+    },
+    {
+      "type": "timestamp_dependence",
+      "location": "lines [20]",
+      "severity": "medium",
+      "explanation": "time_manipulation vulnerability at lines [20]"
+    }
+  ]
+}

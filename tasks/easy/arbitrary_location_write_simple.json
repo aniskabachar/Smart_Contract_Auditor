@@ -1,0 +1,12 @@
+{
+  "contract_id": "arbitrary_location_write_simple",
+  "difficulty": "easy",
+  "vulnerabilities": [
+    {
+      "type": "access_control",
+      "location": "lines [27]",
+      "severity": "high",
+      "explanation": "access_control vulnerability at lines [27]"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "contract_id": "lucky_doubler",
+  "difficulty": "medium",
+  "vulnerabilities": [
+    {
+      "type": "access_control",
+      "location": "lines [127, 128, 129, 130]",
+      "severity": "medium",
+      "explanation": "bad_randomness vulnerability at lines [127, 128, 129, 130]"
+    },
+    {
+      "type": "access_control",
+      "location": "lines [132]",
+      "severity": "medium",
+      "explanation": "bad_randomness vulnerability at lines [132]"
+    }
+  ]
+}

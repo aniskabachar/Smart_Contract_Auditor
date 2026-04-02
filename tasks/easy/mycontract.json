@@ -1,0 +1,12 @@
+{
+  "contract_id": "mycontract",
+  "difficulty": "easy",
+  "vulnerabilities": [
+    {
+      "type": "access_control",
+      "location": "lines [20]",
+      "severity": "high",
+      "explanation": "access_control vulnerability at lines [20]"
+    }
+  ]
+}

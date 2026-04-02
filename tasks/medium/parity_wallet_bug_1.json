@@ -1,0 +1,18 @@
+{
+  "contract_id": "parity_wallet_bug_1",
+  "difficulty": "medium",
+  "vulnerabilities": [
+    {
+      "type": "access_control",
+      "location": "lines [223]",
+      "severity": "high",
+      "explanation": "access_control vulnerability at lines [223]"
+    },
+    {
+      "type": "access_control",
+      "location": "lines [437]",
+      "severity": "high",
+      "explanation": "access_control vulnerability at lines [437]"
+    }
+  ]
+}

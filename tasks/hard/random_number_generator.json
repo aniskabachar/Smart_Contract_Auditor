@@ -1,0 +1,30 @@
+{
+  "contract_id": "random_number_generator",
+  "difficulty": "hard",
+  "vulnerabilities": [
+    {
+      "type": "access_control",
+      "location": "lines [12]",
+      "severity": "medium",
+      "explanation": "bad_randomness vulnerability at lines [12]"
+    },
+    {
+      "type": "access_control",
+      "location": "lines [18]",
+      "severity": "medium",
+      "explanation": "bad_randomness vulnerability at lines [18]"
+    },
+    {
+      "type": "access_control",
+      "location": "lines [20]",
+      "severity": "medium",
+      "explanation": "bad_randomness vulnerability at lines [20]"
+    },
+    {
+      "type": "access_control",
+      "location": "lines [22]",
+      "severity": "medium",
+      "explanation": "bad_randomness vulnerability at lines [22]"
+    }
+  ]
+}

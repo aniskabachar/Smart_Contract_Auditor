@@ -1,0 +1,12 @@
+{
+  "contract_id": "unchecked_return_value",
+  "difficulty": "easy",
+  "vulnerabilities": [
+    {
+      "type": "access_control",
+      "location": "lines [17]",
+      "severity": "medium",
+      "explanation": "unchecked_low_level_calls vulnerability at lines [17]"
+    }
+  ]
+}

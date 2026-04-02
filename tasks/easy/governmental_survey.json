@@ -1,0 +1,12 @@
+{
+  "contract_id": "governmental_survey",
+  "difficulty": "easy",
+  "vulnerabilities": [
+    {
+      "type": "timestamp_dependence",
+      "location": "lines [27]",
+      "severity": "medium",
+      "explanation": "time_manipulation vulnerability at lines [27]"
+    }
+  ]
+}

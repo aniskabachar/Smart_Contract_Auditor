@@ -1,0 +1,18 @@
+{
+  "contract_id": "spank_chain_payment",
+  "difficulty": "medium",
+  "vulnerabilities": [
+    {
+      "type": "reentrancy",
+      "location": "lines [426]",
+      "severity": "critical",
+      "explanation": "reentrancy vulnerability at lines [426]"
+    },
+    {
+      "type": "reentrancy",
+      "location": "lines [430]",
+      "severity": "critical",
+      "explanation": "reentrancy vulnerability at lines [430]"
+    }
+  ]
+}

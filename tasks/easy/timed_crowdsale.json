@@ -1,0 +1,12 @@
+{
+  "contract_id": "timed_crowdsale",
+  "difficulty": "easy",
+  "vulnerabilities": [
+    {
+      "type": "timestamp_dependence",
+      "location": "lines [13]",
+      "severity": "medium",
+      "explanation": "time_manipulation vulnerability at lines [13]"
+    }
+  ]
+}

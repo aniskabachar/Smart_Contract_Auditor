@@ -1,0 +1,12 @@
+{
+  "contract_id": "send_loop",
+  "difficulty": "easy",
+  "vulnerabilities": [
+    {
+      "type": "access_control",
+      "location": "lines [24]",
+      "severity": "medium",
+      "explanation": "denial_of_service vulnerability at lines [24]"
+    }
+  ]
+}

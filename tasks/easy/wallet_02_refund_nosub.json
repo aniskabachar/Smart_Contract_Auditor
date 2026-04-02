@@ -1,0 +1,12 @@
+{
+  "contract_id": "wallet_02_refund_nosub",
+  "difficulty": "easy",
+  "vulnerabilities": [
+    {
+      "type": "access_control",
+      "location": "lines [36]",
+      "severity": "high",
+      "explanation": "access_control vulnerability at lines [36]"
+    }
+  ]
+}

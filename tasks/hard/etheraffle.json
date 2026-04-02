@@ -1,0 +1,42 @@
+{
+  "contract_id": "etheraffle",
+  "difficulty": "hard",
+  "vulnerabilities": [
+    {
+      "type": "access_control",
+      "location": "lines [49]",
+      "severity": "medium",
+      "explanation": "bad_randomness vulnerability at lines [49]"
+    },
+    {
+      "type": "access_control",
+      "location": "lines [99]",
+      "severity": "medium",
+      "explanation": "bad_randomness vulnerability at lines [99]"
+    },
+    {
+      "type": "access_control",
+      "location": "lines [101]",
+      "severity": "medium",
+      "explanation": "bad_randomness vulnerability at lines [101]"
+    },
+    {
+      "type": "access_control",
+      "location": "lines [103]",
+      "severity": "medium",
+      "explanation": "bad_randomness vulnerability at lines [103]"
+    },
+    {
+      "type": "access_control",
+      "location": "lines [114]",
+      "severity": "medium",
+      "explanation": "bad_randomness vulnerability at lines [114]"
+    },
+    {
+      "type": "access_control",
+      "location": "lines [158]",
+      "severity": "medium",
+      "explanation": "bad_randomness vulnerability at lines [158]"
+    }
+  ]
+}

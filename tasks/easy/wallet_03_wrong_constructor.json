@@ -1,0 +1,12 @@
+{
+  "contract_id": "wallet_03_wrong_constructor",
+  "difficulty": "easy",
+  "vulnerabilities": [
+    {
+      "type": "access_control",
+      "location": "lines [19, 20]",
+      "severity": "high",
+      "explanation": "access_control vulnerability at lines [19, 20]"
+    }
+  ]
+}

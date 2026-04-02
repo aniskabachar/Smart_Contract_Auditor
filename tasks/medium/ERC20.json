@@ -1,0 +1,18 @@
+{
+  "contract_id": "ERC20",
+  "difficulty": "medium",
+  "vulnerabilities": [
+    {
+      "type": "access_control",
+      "location": "lines [110]",
+      "severity": "medium",
+      "explanation": "front_running vulnerability at lines [110]"
+    },
+    {
+      "type": "access_control",
+      "location": "lines [113]",
+      "severity": "medium",
+      "explanation": "front_running vulnerability at lines [113]"
+    }
+  ]
+}

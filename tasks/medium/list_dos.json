@@ -1,0 +1,18 @@
+{
+  "contract_id": "list_dos",
+  "difficulty": "medium",
+  "vulnerabilities": [
+    {
+      "type": "access_control",
+      "location": "lines [46]",
+      "severity": "medium",
+      "explanation": "denial_of_service vulnerability at lines [46]"
+    },
+    {
+      "type": "access_control",
+      "location": "lines [48]",
+      "severity": "medium",
+      "explanation": "denial_of_service vulnerability at lines [48]"
+    }
+  ]
+}

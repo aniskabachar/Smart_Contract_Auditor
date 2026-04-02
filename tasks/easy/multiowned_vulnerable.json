@@ -1,0 +1,12 @@
+{
+  "contract_id": "multiowned_vulnerable",
+  "difficulty": "easy",
+  "vulnerabilities": [
+    {
+      "type": "access_control",
+      "location": "lines [38]",
+      "severity": "high",
+      "explanation": "access_control vulnerability at lines [38]"
+    }
+  ]
+}

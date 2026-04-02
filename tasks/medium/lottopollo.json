@@ -1,0 +1,18 @@
+{
+  "contract_id": "lottopollo",
+  "difficulty": "medium",
+  "vulnerabilities": [
+    {
+      "type": "timestamp_dependence",
+      "location": "lines [13]",
+      "severity": "medium",
+      "explanation": "time_manipulation vulnerability at lines [13]"
+    },
+    {
+      "type": "timestamp_dependence",
+      "location": "lines [27]",
+      "severity": "medium",
+      "explanation": "time_manipulation vulnerability at lines [27]"
+    }
+  ]
+}

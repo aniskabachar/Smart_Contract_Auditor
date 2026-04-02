@@ -1,0 +1,24 @@
+{
+  "contract_id": "0x663e4229142a27f00bafb5d087e1e730648314c3",
+  "difficulty": "hard",
+  "vulnerabilities": [
+    {
+      "type": "access_control",
+      "location": "lines [1152]",
+      "severity": "medium",
+      "explanation": "unchecked_low_level_calls vulnerability at lines [1152]"
+    },
+    {
+      "type": "access_control",
+      "location": "lines [1496]",
+      "severity": "medium",
+      "explanation": "unchecked_low_level_calls vulnerability at lines [1496]"
+    },
+    {
+      "type": "access_control",
+      "location": "lines [2467]",
+      "severity": "medium",
+      "explanation": "unchecked_low_level_calls vulnerability at lines [2467]"
+    }
+  ]
+}

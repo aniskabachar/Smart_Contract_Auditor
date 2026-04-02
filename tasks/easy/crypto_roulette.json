@@ -1,0 +1,12 @@
+{
+  "contract_id": "crypto_roulette",
+  "difficulty": "easy",
+  "vulnerabilities": [
+    {
+      "type": "access_control",
+      "location": "lines [40, 41, 42]",
+      "severity": "medium",
+      "explanation": "other vulnerability at lines [40, 41, 42]"
+    }
+  ]
+}

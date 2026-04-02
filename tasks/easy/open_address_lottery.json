@@ -1,0 +1,12 @@
+{
+  "contract_id": "open_address_lottery",
+  "difficulty": "easy",
+  "vulnerabilities": [
+    {
+      "type": "access_control",
+      "location": "lines [91]",
+      "severity": "medium",
+      "explanation": "other vulnerability at lines [91]"
+    }
+  ]
+}

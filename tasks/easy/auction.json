@@ -1,0 +1,12 @@
+{
+  "contract_id": "auction",
+  "difficulty": "easy",
+  "vulnerabilities": [
+    {
+      "type": "access_control",
+      "location": "lines [23]",
+      "severity": "medium",
+      "explanation": "denial_of_service vulnerability at lines [23]"
+    }
+  ]
+}

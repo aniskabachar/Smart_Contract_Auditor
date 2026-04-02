@@ -1,0 +1,24 @@
+{
+  "contract_id": "tokensalechallenge",
+  "difficulty": "hard",
+  "vulnerabilities": [
+    {
+      "type": "integer_overflow",
+      "location": "lines [23]",
+      "severity": "high",
+      "explanation": "arithmetic vulnerability at lines [23]"
+    },
+    {
+      "type": "integer_overflow",
+      "location": "lines [25]",
+      "severity": "high",
+      "explanation": "arithmetic vulnerability at lines [25]"
+    },
+    {
+      "type": "integer_overflow",
+      "location": "lines [33]",
+      "severity": "high",
+      "explanation": "arithmetic vulnerability at lines [33]"
+    }
+  ]
+}

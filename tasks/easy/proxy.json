@@ -1,0 +1,12 @@
+{
+  "contract_id": "proxy",
+  "difficulty": "easy",
+  "vulnerabilities": [
+    {
+      "type": "access_control",
+      "location": "lines [19]",
+      "severity": "high",
+      "explanation": "access_control vulnerability at lines [19]"
+    }
+  ]
+}

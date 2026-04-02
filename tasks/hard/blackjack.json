@@ -1,0 +1,24 @@
+{
+  "contract_id": "blackjack",
+  "difficulty": "hard",
+  "vulnerabilities": [
+    {
+      "type": "access_control",
+      "location": "lines [17]",
+      "severity": "medium",
+      "explanation": "bad_randomness vulnerability at lines [17]"
+    },
+    {
+      "type": "access_control",
+      "location": "lines [19]",
+      "severity": "medium",
+      "explanation": "bad_randomness vulnerability at lines [19]"
+    },
+    {
+      "type": "access_control",
+      "location": "lines [21]",
+      "severity": "medium",
+      "explanation": "bad_randomness vulnerability at lines [21]"
+    }
+  ]
+}

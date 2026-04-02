@@ -1,0 +1,18 @@
+{
+  "contract_id": "odds_and_evens",
+  "difficulty": "medium",
+  "vulnerabilities": [
+    {
+      "type": "access_control",
+      "location": "lines [25]",
+      "severity": "medium",
+      "explanation": "front_running vulnerability at lines [25]"
+    },
+    {
+      "type": "access_control",
+      "location": "lines [28]",
+      "severity": "medium",
+      "explanation": "front_running vulnerability at lines [28]"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "contract_id": "integer_overflow_mapping_sym_1",
+  "difficulty": "easy",
+  "vulnerabilities": [
+    {
+      "type": "integer_overflow",
+      "location": "lines [16]",
+      "severity": "high",
+      "explanation": "arithmetic vulnerability at lines [16]"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "contract_id": "short_address_example",
+  "difficulty": "easy",
+  "vulnerabilities": [
+    {
+      "type": "access_control",
+      "location": "lines [18]",
+      "severity": "medium",
+      "explanation": "short_addresses vulnerability at lines [18]"
+    }
+  ]
+}

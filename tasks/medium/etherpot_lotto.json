@@ -1,0 +1,18 @@
+{
+  "contract_id": "etherpot_lotto",
+  "difficulty": "medium",
+  "vulnerabilities": [
+    {
+      "type": "access_control",
+      "location": "lines [109]",
+      "severity": "medium",
+      "explanation": "unchecked_low_level_calls vulnerability at lines [109]"
+    },
+    {
+      "type": "access_control",
+      "location": "lines [141]",
+      "severity": "medium",
+      "explanation": "unchecked_low_level_calls vulnerability at lines [141]"
+    }
+  ]
+}

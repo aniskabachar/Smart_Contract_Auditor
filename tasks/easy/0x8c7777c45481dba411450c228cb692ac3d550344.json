@@ -1,0 +1,12 @@
+{
+  "contract_id": "0x8c7777c45481dba411450c228cb692ac3d550344",
+  "difficulty": "easy",
+  "vulnerabilities": [
+    {
+      "type": "reentrancy",
+      "location": "lines [41]",
+      "severity": "critical",
+      "explanation": "reentrancy vulnerability at lines [41]"
+    }
+  ]
+}

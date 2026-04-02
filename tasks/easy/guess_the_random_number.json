@@ -1,0 +1,12 @@
+{
+  "contract_id": "guess_the_random_number",
+  "difficulty": "easy",
+  "vulnerabilities": [
+    {
+      "type": "access_control",
+      "location": "lines [15]",
+      "severity": "medium",
+      "explanation": "bad_randomness vulnerability at lines [15]"
+    }
+  ]
+}

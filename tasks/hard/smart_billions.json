@@ -1,0 +1,78 @@
+{
+  "contract_id": "smart_billions",
+  "difficulty": "hard",
+  "vulnerabilities": [
+    {
+      "type": "access_control",
+      "location": "lines [523]",
+      "severity": "medium",
+      "explanation": "bad_randomness vulnerability at lines [523]"
+    },
+    {
+      "type": "access_control",
+      "location": "lines [560]",
+      "severity": "medium",
+      "explanation": "bad_randomness vulnerability at lines [560]"
+    },
+    {
+      "type": "access_control",
+      "location": "lines [700]",
+      "severity": "medium",
+      "explanation": "bad_randomness vulnerability at lines [700]"
+    },
+    {
+      "type": "access_control",
+      "location": "lines [702]",
+      "severity": "medium",
+      "explanation": "bad_randomness vulnerability at lines [702]"
+    },
+    {
+      "type": "access_control",
+      "location": "lines [704]",
+      "severity": "medium",
+      "explanation": "bad_randomness vulnerability at lines [704]"
+    },
+    {
+      "type": "access_control",
+      "location": "lines [706]",
+      "severity": "medium",
+      "explanation": "bad_randomness vulnerability at lines [706]"
+    },
+    {
+      "type": "access_control",
+      "location": "lines [708]",
+      "severity": "medium",
+      "explanation": "bad_randomness vulnerability at lines [708]"
+    },
+    {
+      "type": "access_control",
+      "location": "lines [710]",
+      "severity": "medium",
+      "explanation": "bad_randomness vulnerability at lines [710]"
+    },
+    {
+      "type": "access_control",
+      "location": "lines [712]",
+      "severity": "medium",
+      "explanation": "bad_randomness vulnerability at lines [712]"
+    },
+    {
+      "type": "access_control",
+      "location": "lines [714]",
+      "severity": "medium",
+      "explanation": "bad_randomness vulnerability at lines [714]"
+    },
+    {
+      "type": "access_control",
+      "location": "lines [716]",
+      "severity": "medium",
+      "explanation": "bad_randomness vulnerability at lines [716]"
+    },
+    {
+      "type": "access_control",
+      "location": "lines [718]",
+      "severity": "medium",
+      "explanation": "bad_randomness vulnerability at lines [718]"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "contract_id": "integer_overflow_add",
+  "difficulty": "easy",
+  "vulnerabilities": [
+    {
+      "type": "integer_overflow",
+      "location": "lines [17]",
+      "severity": "high",
+      "explanation": "arithmetic vulnerability at lines [17]"
+    }
+  ]
+}

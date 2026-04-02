@@ -1,0 +1,12 @@
+{
+  "contract_id": "FindThisHash",
+  "difficulty": "easy",
+  "vulnerabilities": [
+    {
+      "type": "access_control",
+      "location": "lines [17]",
+      "severity": "medium",
+      "explanation": "front_running vulnerability at lines [17]"
+    }
+  ]
+}

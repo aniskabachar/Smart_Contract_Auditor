@@ -1,0 +1,18 @@
+{
+  "contract_id": "lottery",
+  "difficulty": "medium",
+  "vulnerabilities": [
+    {
+      "type": "access_control",
+      "location": "lines [38]",
+      "severity": "medium",
+      "explanation": "bad_randomness vulnerability at lines [38]"
+    },
+    {
+      "type": "access_control",
+      "location": "lines [42]",
+      "severity": "medium",
+      "explanation": "bad_randomness vulnerability at lines [42]"
+    }
+  ]
+}

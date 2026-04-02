@@ -1,0 +1,12 @@
+{
+  "contract_id": "old_blockhash",
+  "difficulty": "easy",
+  "vulnerabilities": [
+    {
+      "type": "access_control",
+      "location": "lines [35]",
+      "severity": "medium",
+      "explanation": "bad_randomness vulnerability at lines [35]"
+    }
+  ]
+}

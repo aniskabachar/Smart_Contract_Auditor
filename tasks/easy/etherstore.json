@@ -1,0 +1,12 @@
+{
+  "contract_id": "etherstore",
+  "difficulty": "easy",
+  "vulnerabilities": [
+    {
+      "type": "reentrancy",
+      "location": "lines [27]",
+      "severity": "critical",
+      "explanation": "reentrancy vulnerability at lines [27]"
+    }
+  ]
+}
