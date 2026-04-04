@@ -26,12 +26,14 @@ SEVERITY_MAP = {
 }
 
 def assign_difficulty(vuln_count):
-    if vuln_count == 1:
-        return "easy"
-    elif vuln_count == 2:
+    categories = {v["category"] for v in vulns}
+    count = len(vulns)
+    if count >= 3 or len(categories) >= 2:
+        return "hard"
+    elif count == 2:
         return "medium"
     else:
-        return "hard"
+        return "easy"
 
 os.makedirs("tasks/easy",   exist_ok=True)
 os.makedirs("tasks/medium", exist_ok=True)
@@ -49,7 +51,7 @@ for contract in vuln_data:
         skipped += 1
         continue
 
-    difficulty = assign_difficulty(len(vulns))
+    difficulty = assign_difficulty(vulns)
 
     # Copy .sol to tasks folder
     dest_sol = Path(f"tasks/{difficulty}/{name}")
