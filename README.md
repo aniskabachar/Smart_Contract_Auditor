@@ -25,7 +25,7 @@ tags:
 [![Python 3.11](https://img.shields.io/badge/Python-3.11-blue?logo=python)](https://python.org)
 
 <!-- SCREENSHOT: Add a screenshot of your /docs Swagger UI here -->
- ![API Docs](assets/docs_screenshot.png) 
+![API Docs](assets/docs_screenshot.png) 
 
 </div>
 
@@ -277,7 +277,7 @@ Built on **[SmartBugs Curated](https://github.com/smartbugs/smartbugs-curated)**
 The baseline agent uses **LLaMA-3.3-70B** (via Groq API) with a carefully engineered system prompt.
 
 <!-- SCREENSHOT: Add a screenshot of baseline agent terminal output here -->
-<!-- ![Baseline Output](assets/baseline_output.png) -->
+![Baseline Output](assets/baseline_output.png)
 
 ### Baseline Results
 
