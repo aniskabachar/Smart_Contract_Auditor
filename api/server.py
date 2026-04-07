@@ -4,7 +4,7 @@ from auditor.models import Action, Observation
 import uvicorn
 
 app  = FastAPI(
-    title       = "Smart Contract Auditor — OpenEnv",
+    title       = "Smart Contract Auditor (OpenEnv)",
     description = "An RL-style environment for AI agents to audit Solidity smart contracts",
     version     = "1.0.0"
 )
