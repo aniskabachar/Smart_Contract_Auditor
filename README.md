@@ -1,6 +1,5 @@
 ---
 title: Smart Contract Auditor
-emoji: 🔐
 colorFrom: blue
 colorTo: purple
 sdk: docker
@@ -15,7 +14,7 @@ tags:
 
 <div align="center">
 
-# 🔐 Smart Contract Auditor — OpenEnv
+# Smart Contract Auditor (OpenEnv)
 
 **An RL-style environment for training and evaluating AI agents on real-world Solidity smart contract security auditing**
 
@@ -26,7 +25,7 @@ tags:
 [![Python 3.11](https://img.shields.io/badge/Python-3.11-blue?logo=python)](https://python.org)
 
 <!-- SCREENSHOT: Add a screenshot of your /docs Swagger UI here -->
-<!-- ![API Docs](assets/docs_screenshot.png) -->
+ ![API Docs](assets/docs_screenshot.png) 
 
 </div>
 
@@ -38,11 +37,11 @@ tags:
 
 The environment provides step-by-step interaction, continuous reward shaping, and reproducible evaluation — making it suitable for benchmarking LLMs and training RL-based agents on real security tasks.
 
-> 💡 **Why this matters:** Smart contract audits cost between $50,000–$500,000 per engagement. Automating vulnerability detection with AI agents has direct, measurable real-world value.
+> **Why this matters:** Smart contract audits cost between $50,000–$500,000 per engagement. Automating vulnerability detection with AI agents has direct, measurable real-world value.
 
 ---
 
-## 🎯 Real-World Task
+## Real-World Task
 
 The agent simulates a **Web3 security auditor** performing the following workflow:
 
@@ -53,7 +52,7 @@ The agent simulates a **Web3 security auditor** performing the following workflo
 
 ---
 
-## 🏗️ Environment Architecture
+## Environment Architecture
 
 ```
 ┌─────────────────────────────────────────────────────┐
@@ -74,7 +73,7 @@ The agent simulates a **Web3 security auditor** performing the following workflo
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 smart-contract-auditor/
@@ -106,7 +105,7 @@ smart-contract-auditor/
 
 ---
 
-## 🧩 OpenEnv API
+## OpenEnv API
 
 ### `POST /reset/{difficulty}`
 
@@ -180,7 +179,7 @@ Returns current environment state.
 
 ---
 
-## 📐 Typed Models (Pydantic)
+## Typed Models (Pydantic)
 
 ### `Action`
 | Field | Type | Description |
@@ -205,7 +204,7 @@ Returns current environment state.
 
 ---
 
-## 📊 Observation Space
+## Observation Space
 
 | Property | Description |
 |---|---|
@@ -216,7 +215,7 @@ Returns current environment state.
 
 ---
 
-## ⚡ Action Space
+## Action Space
 
 | Property | Description |
 |---|---|
@@ -227,7 +226,7 @@ Returns current environment state.
 
 ---
 
-## 🏆 Reward Function
+## Reward Function
 
 Rewards are continuous (0.0 → 1.0) and shaped to penalize hallucination:
 
@@ -249,7 +248,7 @@ final_reward = base_score − fp_penalty − (0.05 × missed_bugs)
 
 ---
 
-## 📦 Task Levels & Dataset
+## Task Levels & Dataset
 
 Built on **[SmartBugs Curated](https://github.com/smartbugs/smartbugs-curated)** — 143 annotated real-world Solidity contracts organized by the DASP taxonomy.
 
@@ -273,7 +272,7 @@ Built on **[SmartBugs Curated](https://github.com/smartbugs/smartbugs-curated)**
 
 ---
 
-## 🤖 Baseline Agent
+## Baseline Agent
 
 The baseline agent uses **LLaMA-3.3-70B** (via Groq API) with a carefully engineered system prompt.
 
@@ -292,7 +291,7 @@ The baseline agent uses **LLaMA-3.3-70B** (via Groq API) with a carefully engine
 
 ---
 
-## 🚀 Setup & Installation
+## Setup & Installation
 
 ### Prerequisites
 - Python 3.11+
@@ -341,31 +340,25 @@ docker run -p 7860:7860 --env-file .env smart-contract-auditor
 
 ---
 
-## 🌐 API Docs (Swagger UI)
+## API Docs (Swagger UI)
 
 When running, visit `/docs` for the interactive Swagger UI where you can test all endpoints directly in the browser.
 
 <!-- SCREENSHOT: Replace the line below with your actual screenshot -->
-<!-- ![Swagger UI](assets/swagger_ui.png) -->
+![Swagger UI](assets/swagger_ui.png)
 
 ```
 http://localhost:7860/docs         (Docker / HuggingFace)
 http://localhost:8000/docs         (Local dev)
 ```
 
-**➡️ Where to add screenshots:**
-1. Take a screenshot of `http://localhost:8000/docs`  → save as `assets/swagger_ui.png`
-2. Take a screenshot of your terminal running baseline agent → save as `assets/baseline_output.png`
-3. Create an `assets/` folder in your repo and add both images
-4. Uncomment the image lines above in this README
-
 ---
 
-## 📋 Environment Variables
+## Environment Variables
 
 | Variable | Required | Description |
 |---|---|---|
-| `GROQ_API_KEY` | ✅ Yes | Your Groq API key from console.groq.com |
+| `GROQ_API_KEY` | Yes | Your Groq API key from console.groq.com |
 
 Copy `.env.example` to `.env` and fill in your key:
 ```
@@ -374,7 +367,7 @@ GROQ_API_KEY=your_groq_api_key_here
 
 ---
 
-## 📚 Dataset Citation
+## Dataset Citation
 
 This environment uses the **SmartBugs Curated** dataset:
 
@@ -391,7 +384,7 @@ This environment uses the **SmartBugs Curated** dataset:
 
 ---
 
-## 📄 License
+## License
 
 MIT License — see [LICENSE](LICENSE) for details.
 
