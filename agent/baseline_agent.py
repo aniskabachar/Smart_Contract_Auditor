@@ -43,6 +43,7 @@ VALID_TYPES = {
     "bad_randomness", "denial_of_service", "front_running",
     "unchecked_calls", "short_address", "other"
 }
+
 # Add this constant at the top of the file after VALID_TYPES
 MAX_TOKENS_BY_DIFFICULTY = {
     "easy":   8000,
