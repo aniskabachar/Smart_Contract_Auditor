@@ -1,3 +1,4 @@
+import os
 from fastapi import FastAPI, HTTPException
 from auditor.environment import SmartContractAuditorEnv
 from auditor.models import Action, Observation
@@ -44,4 +45,4 @@ def state(session_id: str):
     return envs[session_id].state()
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    uvicorn.run(app, host="0.0.0.0", port=7860)
