@@ -1,0 +1,38 @@
+name: smart-contract-auditor
+description: Deterministic OpenEnv benchmark for structured Solidity smart contract auditing.
+version: 2.0.0
+entrypoint:
+  module: server.app
+  app: app
+transport:
+  type: http
+  base_url: http://localhost:7860
+artifacts:
+  dockerfile: Dockerfile
+  inference_script: inference.py
+python:
+  package: auditor
+  exports:
+    env: environment.SmartContractAuditorEnv
+    action: models.Action
+    observation: models.Observation
+tasks:
+  - id: easy
+    difficulty: easy
+    contract_id: reentrancy_simple
+  - id: medium
+    difficulty: medium
+    contract_id: lotto
+  - id: hard
+    difficulty: hard
+    contract_id: tokensalechallenge
+api:
+  reset:
+    method: POST
+    path: /reset/{difficulty}
+  step:
+    method: POST
+    path: /step/{session_id}
+  state:
+    method: GET
+    path: /state/{session_id}

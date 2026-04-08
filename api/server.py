@@ -1,42 +1,61 @@
-import os
-from fastapi import FastAPI, HTTPException
-from auditor.environment import SmartContractAuditorEnv
-from auditor.models import Action, Observation
 import uvicorn
+from fastapi import FastAPI, HTTPException
 
-app  = FastAPI(
-    title       = "Smart Contract Auditor (OpenEnv)",
-    description = "An RL-style environment for AI agents to audit Solidity smart contracts",
-    version     = "1.0.0"
+from auditor.benchmark import BENCHMARK_NAME
+from auditor.environment import SmartContractAuditorEnv
+from auditor.models import Action
+
+
+app = FastAPI(
+    title="Smart Contract Auditor (OpenEnv)",
+    description="Deterministic OpenEnv benchmark for Solidity vulnerability auditing.",
+    version="2.0.0",
 )
 
-envs = {}  # session_id → env instance
+envs: dict[str, SmartContractAuditorEnv] = {}
 
 @app.get("/")
 def root():
     return {
-        "name":        "Smart Contract Auditor OpenEnv",
-        "version":     "1.0.0",
-        "description": "RL environment for smart contract vulnerability detection",
-        "endpoints":   ["/reset/{difficulty}", "/step/{session_id}", "/state/{session_id}", "/health"]
+        "name": BENCHMARK_NAME,
+        "version": "2.0.0",
+        "description": "Single-domain benchmark for structured smart contract auditing.",
+        "endpoints": [
+            "/health",
+            "/tasks",
+            "/reset/{difficulty}",
+            "/step/{session_id}",
+            "/state/{session_id}",
+        ],
     }
 
 @app.get("/health")
 def health():
     return {"status": "ok"}
 
+@app.get("/tasks")
+def tasks():
+    return SmartContractAuditorEnv("easy").list_tasks()
+
 @app.post("/reset/{difficulty}")
-def reset(difficulty: str, session_id: str = "default"):
+def reset(difficulty: str, session_id: str = "default", task_id: str | None = None):
     if difficulty not in ("easy", "medium", "hard"):
         raise HTTPException(400, "difficulty must be: easy | medium | hard")
-    envs[session_id] = SmartContractAuditorEnv(difficulty=difficulty)
-    return envs[session_id].reset()
+    try:
+        env = SmartContractAuditorEnv(difficulty=difficulty)
+        envs[session_id] = env
+        return env.reset(task_id=task_id)
+    except ValueError as exc:
+        raise HTTPException(400, str(exc)) from exc
 
 @app.post("/step/{session_id}")
 def step(session_id: str, action: Action):
     if session_id not in envs:
         raise HTTPException(404, "Session not found. Call /reset first.")
-    return envs[session_id].step(action)
+    try:
+        return envs[session_id].step(action)
+    except RuntimeError as exc:
+        raise HTTPException(400, str(exc)) from exc
 
 @app.get("/state/{session_id}")
 def state(session_id: str):

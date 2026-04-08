@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "openenv-smart-contract-auditor"
+version = "0.1.0"
+description = "Deterministic OpenEnv benchmark for Solidity smart contract auditing"
+requires-python = ">=3.10"
+dependencies = [
+    "openenv-core[core]>=0.2.2",
+    "fastapi",
+    "openai",
+    "pydantic",
+    "uvicorn",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+]
+
+[project.scripts]
+server = "server.app:main"
+
+[tool.setuptools]
+include-package-data = true
+packages = ["auditor", "api", "server"]

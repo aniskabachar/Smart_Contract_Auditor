@@ -3,16 +3,16 @@
   "difficulty": "medium",
   "vulnerabilities": [
     {
-      "type": "access_control",
+      "type": "unchecked_calls",
       "location": "lines [20]",
       "severity": "medium",
-      "explanation": "unchecked_low_level_calls vulnerability at lines [20]"
+      "explanation": "Unchecked low-level send() call at lines [20]"
     },
     {
-      "type": "access_control",
+      "type": "unchecked_calls",
       "location": "lines [27]",
       "severity": "medium",
-      "explanation": "unchecked_low_level_calls vulnerability at lines [27]"
+      "explanation": "Unchecked low-level send() call at lines [27]"
     }
   ]
 }

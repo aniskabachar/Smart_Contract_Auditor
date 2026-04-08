@@ -11,4 +11,4 @@ ENV PYTHONPATH=/app
 
 EXPOSE 7860
 
-CMD ["python", "api/server.py"]
+CMD ["python", "server/app.py"]

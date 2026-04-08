@@ -1,4 +1,16 @@
-
+---
+title: Smart Contract Auditor
+colorFrom: blue
+colorTo: green
+sdk: docker
+pinned: false
+tags:
+  - openenv
+  - smart-contracts
+  - solidity
+  - security
+  - reinforcement-learning
+---
 
 <div align="center">
 
@@ -23,7 +35,7 @@
 
 **Smart Contract Auditor** is a real-world task simulation environment built on the **OpenEnv API standard**. It models the workflow of a professional Web3 security auditor — an AI agent receives Solidity smart contract source code and must identify security vulnerabilities, classify their severity, and pinpoint their location.
 
-The environment provides step-by-step interaction, continuous reward shaping, and reproducible evaluation — making it suitable for benchmarking LLMs and training RL-based agents on real security tasks.
+The environment provides deterministic benchmark tasks, typed `step()` / `reset()` / `state()` interactions, and reproducible evaluation for OpenEnv-style agent benchmarking.
 
 > **Why this matters:** Smart contract audits cost between $50,000–$500,000 per engagement. Automating vulnerability detection with AI agents has direct, measurable real-world value.
 
@@ -36,7 +48,15 @@ The agent simulates a **Web3 security auditor** performing the following workflo
 1. Receives a Solidity smart contract as input
 2. Analyzes the code for known vulnerability patterns
 3. Returns a structured audit report with vulnerability types, locations, severities, and explanations
-4. Receives a reward score based on precision, recall, and false positive rate
+4. Receives a reward score based on vulnerability type accuracy, location accuracy, and false positive penalties
+
+### Official Benchmark Tasks
+
+| Task ID | Difficulty | Contract | Expected Findings |
+|---|---|---|---|
+| `easy` | easy | `reentrancy_simple` | 1 reentrancy finding |
+| `medium` | medium | `lotto` | 2 unchecked low-level call findings |
+| `hard` | hard | `tokensalechallenge` | 3 arithmetic overflow findings |
 
 ---
 
@@ -54,8 +74,8 @@ The agent simulates a **Web3 security auditor** performing the following workflo
          ▼                        ▼
 ┌─────────────────┐    ┌──────────────────────┐
 │  Contract DB    │    │   Grader + Reward     │
-│  143 contracts  │    │   Precision/Recall    │
-│  Easy/Med/Hard  │    │   F1 + FP Penalty     │
+│  Deterministic  │    │   Type + Location     │
+│  3-task suite   │    │   Match + Penalties   │
 └─────────────────┘    └──────────────────────┘
 ```
 
@@ -73,10 +93,15 @@ smart-contract-auditor/
 │   └── reward.py            # Reward shaping with FP penalties
 │
 ├── agent/
-│   └── baseline_agent.py    # LLaMA-3.3-70B baseline via Groq API
+│   └── baseline_agent.py    # Legacy local experiment (not submission baseline)
 │
 ├── api/
-│   └── server.py            # FastAPI server (OpenEnv HTTP interface)
+│   └── server.py            # Legacy compatibility server
+├── server/
+│   └── app.py               # Canonical OpenEnv runtime entrypoint
+├── client.py                # Lightweight HTTP client for inference
+├── inference.py             # Competition-required baseline inference script
+├── openenv.yaml             # OpenEnv metadata manifest
 │
 ├── tasks/
 │   ├── easy/                # Single-vulnerability contracts + ground truth
@@ -102,14 +127,20 @@ Starts a new episode. Returns an initial observation.
 **Parameters:**
 - `difficulty`: `easy` | `medium` | `hard`
 - `session_id` (query param, optional): defaults to `"default"`
+- `task_id` (query param, optional): deterministic benchmark task selection
 
 **Response — Observation:**
 ```json
 {
   "contract_code": "pragma solidity ^0.6.0; contract VulnerableBank { ... }",
+  "task_id": "easy",
+  "contract_id": "reentrancy_simple",
   "task_level": "easy",
+  "objective": "Submit one structured audit report for a contract with exactly one real vulnerability.",
   "context": "This contract has exactly ONE vulnerability. Find only that one.",
-  "attempt_number": 0
+  "attempt_number": 0,
+  "allowed_vulnerability_types": ["reentrancy"],
+  "info": {"task_id": "easy", "contract_id": "reentrancy_simple"}
 }
 ```
 
@@ -136,16 +167,17 @@ Agent submits its audit report as an action.
 **Response:**
 ```json
 {
-  "observation": { "contract_code": "...", "task_level": "easy", "context": "Attempt 1 complete.", "attempt_number": 1 },
+  "observation": { "contract_code": "...", "task_id": "easy", "contract_id": "reentrancy_simple", "task_level": "easy", "objective": "...", "context": "Benchmark submission recorded. Call reset() to start a new task.", "attempt_number": 1, "allowed_vulnerability_types": ["reentrancy"], "info": {"grader_score": 1.0} },
   "reward": 0.85,
   "done": true,
   "info": {
-    "score": 0.85,
+    "grader_score": 0.85,
     "precision": 1.0,
     "recall": 1.0,
-    "true_positives": ["reentrancy"],
-    "false_positives": [],
-    "missed_bugs": []
+    "matched_findings": [],
+    "partial_matches": [],
+    "unmatched_predictions": [],
+    "missed_findings": []
   }
 }
 ```
@@ -158,10 +190,11 @@ Returns current environment state.
 
 ```json
 {
+  "task_id": "easy",
+  "contract_id": "reentrancy_simple",
   "difficulty": "easy",
   "attempt_number": 1,
-  "done": true,
-  "current_contract_id": "reentrancy_simple_dao"
+  "done": true
 }
 ```
 
@@ -257,25 +290,31 @@ Built on **[SmartBugs Curated](https://github.com/smartbugs/smartbugs-curated)**
 | `timestamp_dependence` | `block.timestamp` used for randomness/logic | Medium |
 | `selfdestruct` | Unprotected `selfdestruct` call | High |
 | `uninitialized_storage` | Storage pointer bug | High |
+| `unchecked_calls` | Unchecked low-level `send()` / `call()` result | Medium |
 
 ---
 
-## Baseline Agent
+## Competition Baseline
 
-The baseline agent uses **LLaMA-3.3-70B** (via Groq API) with a carefully engineered system prompt.
+The competition baseline is the repo-root `inference.py` script. It uses the **OpenAI client** only, reads `OPENAI_API_KEY` / `HF_TOKEN`, `API_BASE_URL`, `MODEL_NAME`, and `HF_SPACE_URL`, and emits the required `[START]`, `[STEP]`, and `[END]` lines.
+
+For validator compatibility, the final reported task score is normalized into the open interval `(0, 1)`:
+
+- exact `0.0` is emitted as `0.01`
+- exact `1.0` is emitted as `0.99`
+
+This normalization affects the final reported score in `[END]`, not the environment's internal reward logic.
 
 <!-- SCREENSHOT: Add a screenshot of baseline agent terminal output here -->
 ![Baseline Output](assets/baseline_output.png)
 
-### Baseline Results
+### Benchmark Run
 
-| Level | Avg Score | Runs |
-|---|---|---|
-| **Easy** | 0.60 | 5 |
-| **Medium** | 0.30 | 5 |
-| **Hard** | 0.34 | 5 |
+```bash
+python inference.py
+```
 
-> Scores show a clear difficulty progression. The primary failure mode is false positives on `reentrancy` and `integer_overflow` in contracts where those bugs are not present.
+The legacy `agent/baseline_agent.py` file is retained only as an older local experiment and is not the submission baseline.
 
 ---
 
@@ -284,7 +323,7 @@ The baseline agent uses **LLaMA-3.3-70B** (via Groq API) with a carefully engine
 ### Prerequisites
 - Python 3.11+
 - Docker (for containerized deployment)
-- Groq API key (free at [console.groq.com](https://console.groq.com))
+- An OpenAI-compatible API key via `OPENAI_API_KEY` or `HF_TOKEN`
 
 ### Local Setup
 
@@ -296,20 +335,14 @@ cd smart-contract-auditor
 # 2. Install dependencies
 pip install -r requirements.txt
 
-# 3. Set up environment variables
-cp .env.example .env
-# Edit .env and add your GROQ_API_KEY
+# 3. Run OpenEnv server
+python server/app.py
 
-# 4. Parse dataset into task folders
-python parser.py
-
-# 5. Run baseline agent
-python -m agent.baseline_agent
-
-# 6. Run API server
-python api/server.py
-# → Visit http://localhost:8000/docs
+# 4. Run competition baseline inference
+python inference.py
 ```
+
+The canonical submission runtime is `server/app.py`, which serves the standard OpenEnv endpoints used by `openenv validate --url ...`.
 
 ---
 
@@ -336,8 +369,7 @@ When running, visit `/docs` for the interactive Swagger UI where you can test al
 ![Swagger UI](assets/swagger_ui.png)
 
 ```
-http://localhost:7860/docs         (Docker / HuggingFace)
-http://localhost:8000/docs         (Local dev)
+http://localhost:7860/docs
 ```
 
 ---
@@ -346,11 +378,20 @@ http://localhost:8000/docs         (Local dev)
 
 | Variable | Required | Description |
 |---|---|---|
-| `GROQ_API_KEY` | Yes | Your Groq API key from console.groq.com |
+| `OPENAI_API_KEY` | Yes* | OpenAI or compatible API key |
+| `HF_TOKEN` | Yes* | Optional fallback key used when `OPENAI_API_KEY` is unset |
+| `API_BASE_URL` | No | LLM API base URL, default `https://api.openai.com/v1` |
+| `MODEL_NAME` | No | Model name, default `gpt-4o-mini` |
+| `HF_SPACE_URL` | No | Environment server URL, default `http://localhost:7860` |
 
-Copy `.env.example` to `.env` and fill in your key:
+`OPENAI_API_KEY` or `HF_TOKEN` must be present before running `inference.py`.
+
+Example:
 ```
-GROQ_API_KEY=your_groq_api_key_here
+OPENAI_API_KEY=your_api_key_here
+API_BASE_URL=https://api.openai.com/v1
+MODEL_NAME=gpt-4o-mini
+HF_SPACE_URL=http://localhost:7860
 ```
 
 ---
@@ -380,6 +421,6 @@ MIT License — see [LICENSE](LICENSE) for details.
 
 <div align="center">
 
-Built for the **OpenEnv Challenge** · Powered by **SmartBugs Curated** · Agent via **Groq + LLaMA 3.3**
+Built for the **OpenEnv Challenge** · Powered by **SmartBugs Curated** · Baseline via **OpenAI Client**
 
 </div>
