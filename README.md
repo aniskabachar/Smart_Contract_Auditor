@@ -25,13 +25,13 @@ tags:
 [![Python 3.11](https://img.shields.io/badge/Python-3.11-blue?logo=python)](https://python.org)
 
 <!-- SCREENSHOT: Add a screenshot of your /docs Swagger UI here -->
-![API Docs](assets/docs_screenshot.png) 
+<!--![API Docs](assets/docs_screenshot.png) -->
 
 </div>
 
 ---
 
-## 📌 Overview
+## Overview
 
 **Smart Contract Auditor** is a real-world task simulation environment built on the **OpenEnv API standard**. It models the workflow of a professional Web3 security auditor — an AI agent receives Solidity smart contract source code and must identify security vulnerabilities, classify their severity, and pinpoint their location.
 

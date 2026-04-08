@@ -9,6 +9,6 @@ COPY . .
 
 ENV PYTHONPATH=/app
 
-EXPOSE 8000
+EXPOSE 7860
 
 CMD ["python", "api/server.py"]
