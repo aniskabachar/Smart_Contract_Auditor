@@ -1,16 +1,4 @@
----
-title: Smart Contract Auditor
-colorFrom: blue
-colorTo: purple
-sdk: docker
-pinned: false
-tags:
-  - openenv
-  - smart-contracts
-  - solidity
-  - security
-  - reinforcement-learning
----
+
 
 <div align="center">
 
